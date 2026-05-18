@@ -165,8 +165,8 @@ function Features() {
 const benefits = [
   { icon: TrendingUp, label: "Boost Sales", desc: "AI never misses a call, captures upsells, and converts every ring into revenue — more effectively than any human can, 24 hours a day." },
   { icon: DollarSign, label: "Cut Costs", desc: "Replace expensive phone shifts with a single AI that works around the clock, handling more calls for a fraction of the labor cost." },
-  { icon: Timer, stat: "100%", label: "Save Time", desc: "Your team stays focused on cooking while AI handles every phone order from start to finish — instantly, accurately, and all day long." },
-  { icon: ChefHat, stat: "Live", label: "Kitchen Efficiency", desc: "See order bottlenecks and prep delays in real time so you can streamline the line before the next rush hits." },
+  { icon: Timer, label: "Save Time", desc: "Your team stays focused on cooking while AI handles every phone order from start to finish — instantly, accurately, and all day long." },
+  { icon: ChefHat, label: "Kitchen Efficiency", desc: "See order bottlenecks and prep delays in real time so you can streamline the line before the next rush hits." },
 ];
 
 function Benefits() {
