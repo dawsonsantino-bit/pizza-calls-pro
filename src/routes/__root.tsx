@@ -72,6 +72,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "Wp0AyH6qFFr7fTGjB7gtkQoZAvjmXwgtg9Y9UDU7Iok" },
       { title: "FeedInSystems — AI Phone Assistant for Pizza Restaurants" },
       { name: "description", content: "Bilingual AI phone assistant for pizza restaurants. Never miss an order. 14-day free trial." },
       { name: "author", content: "Lovable" },
