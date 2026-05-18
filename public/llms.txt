@@ -1,0 +1,9 @@
+# FeedInSystems
+
+> Bilingual AI phone assistant for pizza restaurants. Answers calls 24/7, takes orders accurately, and provides real-time analytics.
+
+FeedInSystems replaces missed calls and order errors with an always-on AI phone system designed for pizzerias. Flat $600/month after a 14-day free trial.
+
+## Pages
+
+- [Home](/): Product overview, features, benefits, pricing, and free-trial signup.
