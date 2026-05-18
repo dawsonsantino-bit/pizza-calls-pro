@@ -312,7 +312,7 @@ function Footer() {
           <h4 className="font-semibold text-sm mb-3">Contact</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li>hello@feedinefficiency.com</li>
-            <li>1-800-FEED-INEFF</li>
+            <li>(432) 934-1032</li>
             <li>Mon–Sun, 24/7</li>
           </ul>
         </div>
