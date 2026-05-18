@@ -91,6 +91,34 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "FeedInSystems",
+          url: "https://feedinsystems.com",
+          email: "hello@feedinsystems.com",
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+1-432-934-1032",
+            email: "hello@feedinsystems.com",
+            contactType: "customer service",
+            availableLanguage: ["English", "Spanish"],
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "FeedInSystems",
+          url: "https://feedinsystems.com",
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
