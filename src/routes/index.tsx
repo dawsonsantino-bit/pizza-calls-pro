@@ -198,8 +198,7 @@ function Benefits() {
             {benefits.map((b) => (
               <div key={b.label} className="p-7 rounded-2xl bg-card border border-border">
                 <b.icon className="w-6 h-6 text-primary" />
-                <div className="mt-6 font-display text-4xl font-bold tracking-tight text-foreground">{b.stat}</div>
-                <div className="mt-1 font-semibold">{b.label}</div>
+                <div className="mt-4 font-semibold text-lg">{b.label}</div>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
               </div>
             ))}
