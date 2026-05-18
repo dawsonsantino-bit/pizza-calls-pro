@@ -33,7 +33,7 @@ function Nav() {
           <a href="#features" className="hover:text-foreground transition-colors">Features</a>
           <a href="#benefits" className="hover:text-foreground transition-colors">Benefits</a>
           <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
-          <a href="#testimonials" className="hover:text-foreground transition-colors">Stories</a>
+          <a href="#benefits" className="hover:text-foreground transition-colors">Why us</a>
         </nav>
         <Button size="sm" className="rounded-full">Start Free Trial</Button>
       </div>
@@ -305,14 +305,14 @@ function Footer() {
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li><a href="#features" className="hover:text-foreground">Features</a></li>
             <li><a href="#pricing" className="hover:text-foreground">Pricing</a></li>
-            <li><a href="#testimonials" className="hover:text-foreground">Stories</a></li>
+            <li><a href="#benefits" className="hover:text-foreground">Why us</a></li>
           </ul>
         </div>
         <div>
           <h3 className="font-semibold text-sm mb-3">Contact</h3>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li>hello@feedinsystems.com</li>
-            <li>(432) 934-1032</li>
+            <li><a href="mailto:hello@feedinsystems.com" className="hover:text-foreground">hello@feedinsystems.com</a></li>
+            <li><a href="tel:+14329341032" className="hover:text-foreground">(432) 934-1032</a></li>
             <li>Mon–Sun, 24/7</li>
           </ul>
         </div>
