@@ -112,7 +112,7 @@ async function inspectAll(urls: string[]): Promise<InspectionResult[]> {
 export const runIndexingCheck = createServerFn({ method: "POST" }).handler(async () => {
   const sitemap = await submitSitemap();
   const urls = await fetchSitemapUrls(SITEMAP_URL);
-  const inspections = await Promise.all(urls.slice(0, 10).map((u) => inspectUrl(u)));
+  const inspections = await inspectAll(urls);
   return {
     site: SITE,
     sitemap: { url: SITEMAP_URL, ...sitemap },
