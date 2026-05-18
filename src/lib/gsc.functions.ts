@@ -36,36 +36,77 @@ async function submitSitemap() {
   return { ok: res.ok, status: res.status };
 }
 
-async function inspectUrl(inspectionUrl: string) {
+const BATCH_SIZE = 5;
+const MAX_ATTEMPTS = 3;
+const RETRY_BASE_MS = 500;
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+async function inspectUrlOnce(inspectionUrl: string) {
   const res = await fetch(`${GATEWAY}/v1/urlInspection/index:inspect`, {
     method: "POST",
     headers: authHeaders(),
     body: JSON.stringify({ inspectionUrl, siteUrl: SITE }),
   });
   const body = await res.json().catch(() => ({}));
-  if (!res.ok) {
-    return {
-      url: inspectionUrl,
-      ok: false,
-      status: res.status,
-      error: (body as { error?: { message?: string } })?.error?.message ?? "Inspection failed",
-    };
+  return { res, body };
+}
+
+async function inspectUrl(inspectionUrl: string) {
+  let lastStatus = 0;
+  let lastError = "Inspection failed";
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    try {
+      const { res, body } = await inspectUrlOnce(inspectionUrl);
+      if (res.ok) {
+        const result = (body as { inspectionResult?: Record<string, unknown> }).inspectionResult ?? {};
+        const indexStatus = (result.indexStatusResult ?? {}) as Record<string, unknown>;
+        return {
+          url: inspectionUrl,
+          ok: true as const,
+          attempts: attempt,
+          verdict: indexStatus.verdict as string | undefined,
+          coverageState: indexStatus.coverageState as string | undefined,
+          robotsTxtState: indexStatus.robotsTxtState as string | undefined,
+          indexingState: indexStatus.indexingState as string | undefined,
+          lastCrawlTime: indexStatus.lastCrawlTime as string | undefined,
+          pageFetchState: indexStatus.pageFetchState as string | undefined,
+          googleCanonical: indexStatus.googleCanonical as string | undefined,
+          userCanonical: indexStatus.userCanonical as string | undefined,
+          inspectionResultLink: result.inspectionResultLink as string | undefined,
+        };
+      }
+      lastStatus = res.status;
+      lastError =
+        (body as { error?: { message?: string } })?.error?.message ?? `HTTP ${res.status}`;
+      // Retry only on 429 / 5xx
+      if (res.status !== 429 && res.status < 500) break;
+    } catch (err) {
+      lastError = err instanceof Error ? err.message : "Network error";
+    }
+    if (attempt < MAX_ATTEMPTS) {
+      await sleep(RETRY_BASE_MS * 2 ** (attempt - 1) + Math.floor(Math.random() * 250));
+    }
   }
-  const result = (body as { inspectionResult?: Record<string, unknown> }).inspectionResult ?? {};
-  const indexStatus = (result.indexStatusResult ?? {}) as Record<string, unknown>;
   return {
     url: inspectionUrl,
-    ok: true,
-    verdict: indexStatus.verdict as string | undefined,
-    coverageState: indexStatus.coverageState as string | undefined,
-    robotsTxtState: indexStatus.robotsTxtState as string | undefined,
-    indexingState: indexStatus.indexingState as string | undefined,
-    lastCrawlTime: indexStatus.lastCrawlTime as string | undefined,
-    pageFetchState: indexStatus.pageFetchState as string | undefined,
-    googleCanonical: indexStatus.googleCanonical as string | undefined,
-    userCanonical: indexStatus.userCanonical as string | undefined,
-    inspectionResultLink: result.inspectionResultLink as string | undefined,
+    ok: false as const,
+    attempts: MAX_ATTEMPTS,
+    status: lastStatus,
+    error: lastError,
   };
+}
+
+type InspectionResult = Awaited<ReturnType<typeof inspectUrl>>;
+
+async function inspectAll(urls: string[]): Promise<InspectionResult[]> {
+  const results: InspectionResult[] = [];
+  for (let i = 0; i < urls.length; i += BATCH_SIZE) {
+    const batch = urls.slice(i, i + BATCH_SIZE);
+    const batchResults = await Promise.all(batch.map((u) => inspectUrl(u)));
+    results.push(...batchResults);
+  }
+  return results;
 }
 
 export const runIndexingCheck = createServerFn({ method: "POST" }).handler(async () => {
