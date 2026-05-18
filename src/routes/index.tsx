@@ -27,7 +27,7 @@ function Nav() {
           <span className="w-8 h-8 rounded-lg bg-[var(--gradient-warm)] grid place-items-center text-primary-foreground">
             <Sparkles className="w-4 h-4" />
           </span>
-          PizzaAI
+          FeedInEfficiency
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
           <a href="#features" className="hover:text-foreground transition-colors">Features</a>
@@ -77,7 +77,7 @@ function Hero() {
           <div className="relative rounded-2xl overflow-hidden border border-border shadow-[var(--shadow-soft)] bg-card">
             <img
               src={dashboardImg}
-              alt="PizzaAI analytics dashboard showing revenue, live kitchen orders, and AI ROI"
+              alt="FeedInEfficiency analytics dashboard showing revenue, live kitchen orders, and AI ROI"
               width={1536}
               height={1024}
               className="w-full h-auto"
@@ -94,7 +94,7 @@ function ValueProp() {
     <section className="py-16 border-y border-border bg-card">
       <div className="max-w-5xl mx-auto px-6 text-center">
         <p className="text-sm font-semibold tracking-widest text-primary uppercase mb-4">
-          The PizzaAI Promise
+          The FeedInEfficiency Promise
         </p>
         <h2 className="font-display text-3xl md:text-5xl font-bold tracking-tight">
           Only pay if it works.
@@ -180,7 +180,7 @@ function Benefits() {
               Built for the realities of a busy pizzeria.
             </h2>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              From the Friday-night rush to the slow Tuesday lunch — PizzaAI keeps your phone line
+              From the Friday-night rush to the slow Tuesday lunch — FeedInEfficiency keeps your phone line
               perfect and your margins healthy.
             </p>
             <div className="mt-10 rounded-2xl overflow-hidden border border-border shadow-[var(--shadow-soft)]">
@@ -360,7 +360,7 @@ function Footer() {
             <span className="w-8 h-8 rounded-lg bg-[var(--gradient-warm)] grid place-items-center text-primary-foreground">
               <Sparkles className="w-4 h-4" />
             </span>
-            PizzaAI
+            FeedInEfficiency
           </div>
           <p className="mt-4 text-sm text-muted-foreground max-w-sm">
             The AI phone assistant built for pizza restaurants. Bilingual, accurate, and always on.
@@ -377,15 +377,15 @@ function Footer() {
         <div>
           <h4 className="font-semibold text-sm mb-3">Contact</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li>hello@pizzaai.com</li>
-            <li>1-800-PIZZA-AI</li>
+            <li>hello@feedinefficiency.com</li>
+            <li>1-800-FEED-INEFF</li>
             <li>Mon–Sun, 24/7</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-          <div>© {new Date().getFullYear()} PizzaAI. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} FeedInEfficiency. All rights reserved.</div>
           <Button size="sm" className="rounded-full">Start Free Trial</Button>
         </div>
       </div>
