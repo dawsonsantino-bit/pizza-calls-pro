@@ -301,7 +301,7 @@ function Footer() {
           </p>
         </div>
         <div>
-          <h4 className="font-semibold text-sm mb-3">Product</h4>
+          <h3 className="font-semibold text-sm mb-3">Product</h3>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li><a href="#features" className="hover:text-foreground">Features</a></li>
             <li><a href="#pricing" className="hover:text-foreground">Pricing</a></li>
@@ -309,9 +309,9 @@ function Footer() {
           </ul>
         </div>
         <div>
-          <h4 className="font-semibold text-sm mb-3">Contact</h4>
+          <h3 className="font-semibold text-sm mb-3">Contact</h3>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li>hello@feedinefficiency.com</li>
+            <li>hello@feedinsystems.com</li>
             <li>(432) 934-1032</li>
             <li>Mon–Sun, 24/7</li>
           </ul>
