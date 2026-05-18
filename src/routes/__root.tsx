@@ -75,11 +75,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "FeedInSystems — AI Phone Assistant for Pizza Restaurants" },
       { name: "description", content: "Bilingual AI phone assistant for pizza restaurants. Never miss an order. 14-day free trial." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "FeedInSystems — AI Phone Assistant for Pizza Restaurants" },
+      { property: "og:description", content: "Bilingual AI phone assistant for pizza restaurants. Never miss an order. 14-day free trial." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "FeedInSystems — AI Phone Assistant for Pizza Restaurants" },
+      { name: "twitter:description", content: "Bilingual AI phone assistant for pizza restaurants. Never miss an order. 14-day free trial." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e07912a0-4759-4e31-9a7e-57c4e99d3388/id-preview-2e531af3--e84c2854-93e8-4d9d-a24b-26298095a4b8.lovable.app-1779131517539.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e07912a0-4759-4e31-9a7e-57c4e99d3388/id-preview-2e531af3--e84c2854-93e8-4d9d-a24b-26298095a4b8.lovable.app-1779131517539.png" },
     ],
     links: [
       {
