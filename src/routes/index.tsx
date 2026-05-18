@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Phone, BarChart3, Users, Sparkles, Check, ArrowRight, Globe2,
-  Timer, DollarSign, ChefHat, TrendingUp, Star, ShieldCheck,
+  Timer, DollarSign, ChefHat, TrendingUp, ShieldCheck,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import dashboardImg from "@/assets/dashboard.jpg";
@@ -209,71 +209,6 @@ function Benefits() {
   );
 }
 
-const testimonials = [
-  {
-    quote: "We were missing 40+ calls a week. Now we miss zero. Paid for itself in the first month.",
-    name: "Marco Rinaldi",
-    role: "Owner, Rinaldi's Brick Oven",
-    before: "$18.2k/wk",
-    after: "$24.6k/wk",
-  },
-  {
-    quote: "The Spanish support alone doubled our weekend orders. The dashboard is addictive.",
-    name: "Sofia Vargas",
-    role: "GM, La Famiglia Pizzeria",
-    before: "120 orders/day",
-    after: "187 orders/day",
-  },
-  {
-    quote: "I let go of two phone shifts and customers love the AI more than my staff. Truly.",
-    name: "James O'Connor",
-    role: "Owner, Brooklyn Slice Co.",
-    before: "$5.4k staff/mo",
-    after: "$600 AI/mo",
-  },
-];
-
-function Testimonials() {
-  return (
-    <section id="testimonials" className="py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-2xl">
-          <p className="text-sm font-semibold tracking-widest text-primary uppercase mb-4">Owner stories</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight">
-            Real restaurants. Real numbers.
-          </h2>
-        </div>
-        <div className="mt-16 grid md:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
-            <figure key={t.name} className="p-8 rounded-2xl bg-card border border-border flex flex-col">
-              <div className="flex gap-1 text-accent">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-current" />
-                ))}
-              </div>
-              <blockquote className="mt-5 text-lg leading-relaxed text-foreground">"{t.quote}"</blockquote>
-              <div className="mt-6 grid grid-cols-2 gap-3">
-                <div className="p-3 rounded-lg bg-muted">
-                  <div className="text-xs text-muted-foreground">Before</div>
-                  <div className="font-semibold">{t.before}</div>
-                </div>
-                <div className="p-3 rounded-lg bg-[var(--gradient-warm)] text-primary-foreground">
-                  <div className="text-xs opacity-80">After</div>
-                  <div className="font-semibold">{t.after}</div>
-                </div>
-              </div>
-              <figcaption className="mt-6 pt-6 border-t border-border">
-                <div className="font-semibold">{t.name}</div>
-                <div className="text-sm text-muted-foreground">{t.role}</div>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Pricing() {
   const included = [
     "Bilingual AI phone answering (EN/ES)",
@@ -401,7 +336,6 @@ function Landing() {
         <ValueProp />
         <Features />
         <Benefits />
-        <Testimonials />
         <Pricing />
         <FinalCTA />
       </main>
