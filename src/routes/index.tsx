@@ -11,9 +11,9 @@ export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
-      { title: "PizzaAI — AI Phone Assistant for Pizza Restaurants" },
+      { title: "FeedInEfficiency — AI Phone Assistant for Pizza Restaurants" },
       { name: "description", content: "Bilingual AI answers calls 24/7, takes perfect orders, and gives you real-time analytics. Only $600/month — only if it works." },
-      { property: "og:title", content: "PizzaAI — AI Phone Assistant That Increases Profits" },
+      { property: "og:title", content: "FeedInEfficiency — AI Phone Assistant That Increases Profits" },
       { property: "og:description", content: "Never miss another order. 14-day free trial, no credit card required." },
     ],
   }),
